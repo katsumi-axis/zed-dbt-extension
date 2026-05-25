@@ -1,0 +1,17 @@
+id = "dbt-fusion"
+name = "dbt Fusion"
+description = "dbt Fusion language server integration and dbt SQL support for Zed."
+version = "0.0.1"
+schema_version = 1
+authors = ["axis"]
+repository = "https://github.com/katsumi-axis/zed-dbt-fusion"
+languages = ["languages/dbt-sql"]
+
+[grammars.sql]
+repository = "https://github.com/DerekStride/tree-sitter-sql"
+commit = "4a99c73f5384f2be10adc55208c84d95a7eb1137"
+
+[language_servers.dbt-fusion]
+name = "dbt Fusion"
+languages = ["dbt SQL"]
+language_ids = { "dbt SQL" = "sql" }

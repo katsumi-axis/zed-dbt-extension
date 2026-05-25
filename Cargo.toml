@@ -1,0 +1,15 @@
+[package]
+name = "zed-dbt-extension"
+version = "0.0.1"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[[bin]]
+name = "dbt-lsp-proxy"
+path = "src/bin/dbt_lsp_proxy.rs"
+
+[dependencies]
+serde_json = "1.0"
+zed_extension_api = "0.7.0"

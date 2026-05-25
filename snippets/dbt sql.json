@@ -1,0 +1,27 @@
+{
+  "ref": {
+    "prefix": "ref",
+    "body": "{{ ref('${1:model_name}') }}$0",
+    "description": "dbt ref"
+  },
+  "source": {
+    "prefix": "source",
+    "body": "{{ source('${1:source_name}', '${2:table_name}') }}$0",
+    "description": "dbt source"
+  },
+  "config": {
+    "prefix": "config",
+    "body": "{{ config(materialized='${1:view}') }}\n\n$0",
+    "description": "dbt config"
+  },
+  "macro": {
+    "prefix": "macro",
+    "body": ["{% macro ${1:macro_name}(${2:arg}) %}", "  $0", "{% endmacro %}"],
+    "description": "dbt macro"
+  },
+  "test": {
+    "prefix": "test",
+    "body": ["{% test ${1:test_name}(model, column_name) %}", "  select *", "  from {{ model }}", "  where {{ column_name }} is null", "{% endtest %}"],
+    "description": "dbt generic test"
+  }
+}

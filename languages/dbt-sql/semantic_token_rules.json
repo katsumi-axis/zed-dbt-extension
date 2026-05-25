@@ -1,0 +1,22 @@
+[
+  {
+    "token_type": "macro",
+    "style": ["function"]
+  },
+  {
+    "token_type": "function",
+    "style": ["function"]
+  },
+  {
+    "token_type": "parameter",
+    "style": ["variable.parameter"]
+  },
+  {
+    "token_type": "property",
+    "style": ["property"]
+  },
+  {
+    "token_type": "variable",
+    "style": ["variable"]
+  }
+]

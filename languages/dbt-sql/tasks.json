@@ -1,0 +1,84 @@
+[
+  {
+    "label": "dbt show current model",
+    "command": "bash",
+    "args": [
+      "-lc",
+      "set -euo pipefail\nfile=\"$1\"\nproject_dir=\"$2\"\ndbt_command=\"$3\"\nlimit=\"${4:-}\"\nif [[ ! -f \"$project_dir/dbt_project.yml\" ]]; then\n  echo \"dbt_project.yml was not found at $project_dir\" >&2\n  exit 1\nfi\nrelative_file=\"${file#$project_dir/}\"\nif [[ \"$relative_file\" == \"$file\" ]]; then\n  echo \"$file is not inside $project_dir\" >&2\n  exit 1\nfi\nselector=\"path:$relative_file\"\nif [[ \"$dbt_command\" == \"show\" ]]; then\n  limit=\"${limit:-100}\"\n  echo \"dbt show --select $selector --limit $limit\"\n  exec dbt show --project-dir \"$project_dir\" --select \"$selector\" --limit \"$limit\"\nfi\necho \"dbt $dbt_command --select $selector\"\nexec dbt \"$dbt_command\" --project-dir \"$project_dir\" --select \"$selector\"",
+      "dbt-current-model",
+      "$ZED_FILE",
+      "$ZED_WORKTREE_ROOT",
+      "show",
+      "100"
+    ],
+    "tags": ["dbt-model"],
+    "reveal": "always",
+    "hide": "never",
+    "save": "current",
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "dbt build current model",
+    "command": "bash",
+    "args": [
+      "-lc",
+      "set -euo pipefail\nfile=\"$1\"\nproject_dir=\"$2\"\ndbt_command=\"$3\"\nlimit=\"${4:-}\"\nif [[ ! -f \"$project_dir/dbt_project.yml\" ]]; then\n  echo \"dbt_project.yml was not found at $project_dir\" >&2\n  exit 1\nfi\nrelative_file=\"${file#$project_dir/}\"\nif [[ \"$relative_file\" == \"$file\" ]]; then\n  echo \"$file is not inside $project_dir\" >&2\n  exit 1\nfi\nselector=\"path:$relative_file\"\nif [[ \"$dbt_command\" == \"show\" ]]; then\n  limit=\"${limit:-100}\"\n  echo \"dbt show --select $selector --limit $limit\"\n  exec dbt show --project-dir \"$project_dir\" --select \"$selector\" --limit \"$limit\"\nfi\necho \"dbt $dbt_command --select $selector\"\nexec dbt \"$dbt_command\" --project-dir \"$project_dir\" --select \"$selector\"",
+      "dbt-current-model",
+      "$ZED_FILE",
+      "$ZED_WORKTREE_ROOT",
+      "build"
+    ],
+    "reveal": "always",
+    "hide": "never",
+    "save": "current",
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "dbt run current model",
+    "command": "bash",
+    "args": [
+      "-lc",
+      "set -euo pipefail\nfile=\"$1\"\nproject_dir=\"$2\"\ndbt_command=\"$3\"\nlimit=\"${4:-}\"\nif [[ ! -f \"$project_dir/dbt_project.yml\" ]]; then\n  echo \"dbt_project.yml was not found at $project_dir\" >&2\n  exit 1\nfi\nrelative_file=\"${file#$project_dir/}\"\nif [[ \"$relative_file\" == \"$file\" ]]; then\n  echo \"$file is not inside $project_dir\" >&2\n  exit 1\nfi\nselector=\"path:$relative_file\"\nif [[ \"$dbt_command\" == \"show\" ]]; then\n  limit=\"${limit:-100}\"\n  echo \"dbt show --select $selector --limit $limit\"\n  exec dbt show --project-dir \"$project_dir\" --select \"$selector\" --limit \"$limit\"\nfi\necho \"dbt $dbt_command --select $selector\"\nexec dbt \"$dbt_command\" --project-dir \"$project_dir\" --select \"$selector\"",
+      "dbt-current-model",
+      "$ZED_FILE",
+      "$ZED_WORKTREE_ROOT",
+      "run"
+    ],
+    "reveal": "always",
+    "hide": "never",
+    "save": "current",
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "dbt test current model",
+    "command": "bash",
+    "args": [
+      "-lc",
+      "set -euo pipefail\nfile=\"$1\"\nproject_dir=\"$2\"\ndbt_command=\"$3\"\nlimit=\"${4:-}\"\nif [[ ! -f \"$project_dir/dbt_project.yml\" ]]; then\n  echo \"dbt_project.yml was not found at $project_dir\" >&2\n  exit 1\nfi\nrelative_file=\"${file#$project_dir/}\"\nif [[ \"$relative_file\" == \"$file\" ]]; then\n  echo \"$file is not inside $project_dir\" >&2\n  exit 1\nfi\nselector=\"path:$relative_file\"\nif [[ \"$dbt_command\" == \"show\" ]]; then\n  limit=\"${limit:-100}\"\n  echo \"dbt show --select $selector --limit $limit\"\n  exec dbt show --project-dir \"$project_dir\" --select \"$selector\" --limit \"$limit\"\nfi\necho \"dbt $dbt_command --select $selector\"\nexec dbt \"$dbt_command\" --project-dir \"$project_dir\" --select \"$selector\"",
+      "dbt-current-model",
+      "$ZED_FILE",
+      "$ZED_WORKTREE_ROOT",
+      "test"
+    ],
+    "reveal": "always",
+    "hide": "never",
+    "save": "current",
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "dbt compile current model",
+    "command": "bash",
+    "args": [
+      "-lc",
+      "set -euo pipefail\nfile=\"$1\"\nproject_dir=\"$2\"\ndbt_command=\"$3\"\nlimit=\"${4:-}\"\nif [[ ! -f \"$project_dir/dbt_project.yml\" ]]; then\n  echo \"dbt_project.yml was not found at $project_dir\" >&2\n  exit 1\nfi\nrelative_file=\"${file#$project_dir/}\"\nif [[ \"$relative_file\" == \"$file\" ]]; then\n  echo \"$file is not inside $project_dir\" >&2\n  exit 1\nfi\nselector=\"path:$relative_file\"\nif [[ \"$dbt_command\" == \"show\" ]]; then\n  limit=\"${limit:-100}\"\n  echo \"dbt show --select $selector --limit $limit\"\n  exec dbt show --project-dir \"$project_dir\" --select \"$selector\" --limit \"$limit\"\nfi\necho \"dbt $dbt_command --select $selector\"\nexec dbt \"$dbt_command\" --project-dir \"$project_dir\" --select \"$selector\"",
+      "dbt-current-model",
+      "$ZED_FILE",
+      "$ZED_WORKTREE_ROOT",
+      "compile"
+    ],
+    "reveal": "always",
+    "hide": "never",
+    "save": "current",
+    "allow_concurrent_runs": false
+  }
+]
